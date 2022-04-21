@@ -1,6 +1,8 @@
 # Introduction
 
-Un objectif de la Dataviz est de se représenter ou d'imaginer des choses abstraites. De mieux comprendre un problème et donc de mieux l'expliquer.
+Un objectif de la Dataviz est de se représenter ou d'imaginer des choses abstraites, comme un fichier avec des données structurées, semi-structurées ou non structurées.
+
+De mieux comprendre un problème et donc de mieux l'expliquer.
 
 Deux approches existent pour utiliser la libreaire Matplotlib : une objet et une autre fonctionnelle avec plt.plot
 
@@ -10,11 +12,15 @@ Deux approches existent pour utiliser la libreaire Matplotlib : une objet et une
 
 1. Création de la figure
 
+D'abord vous créez l'espace dans lequel votre figure va se placer.
+
 ```python
 plt.figure(figsize=(12,8))
 ```
 
 2. Contenu
+
+Définir le type de figure que vous souhaitez créer.
 
 ```python
 plt.plot(x, x**2)
@@ -27,18 +33,20 @@ plt.plot(x, x**2)
 plt.plot(x, x**3)
 ```
 
-4. Ajoutez des titre, label et légendes
+4. Ajoutez des titre, label et légendes voir la disposition suivante
 
 ```python
+plt.figure(figsize=(12,8))
 
-plt.plot(x, x**2, label="quadratique")
-plt.plot(x, x**3, label="cubique")
+plt.plot(x, x**2, label="quadratique", c='red', lw=2, ls='--')
+plt.plot(x, x**3, label="cubique", c='black', lw=1, ls=':')
 
-plt.title('Figure')
+plt.title('Figures')
 
 plt.xlabel('axe x')
 plt.ylabel('axe y')
 
+# On doit appeler cette fonction pour tracer la courbe
 plt.legend()
 plt.show()
 ```
@@ -51,9 +59,10 @@ plt.savefig('my_fig.png')
 
 ## Grille
 
-On peut également créer une grille de figures, on peut le voir comme une seule et même cycle de figures.
+On peut également créer une grille de figures, on peut le voir comme un seul et même cycle pour nos figures.
 
 ```python
+# row column
 plt.subplot(2, 1, 1)
 plt.plot(x, x**2, label="quadratique", c='red')
 
@@ -63,16 +72,15 @@ plt.plot(x, x**3, label="quadratique", c='black')
 
 ## Approche objet pour les graphiques 
 
-On peut également créer des graphiques avec l'approche objet, elle est plus souple et offre un peu plus de possibilités.
+On peut également créer des graphiques avec l'approche objet, elle est plus souple et offre plus de possibilités.
 
+- L'objet **ax** est un tableau **np.array** et l'attribut **sharex** permet de partager le même axe x des abscisses.
 
-- L'objet ax est un tableau np.array et l'attribut **sharex** permet de partager le même axe x abscisses.
-
-- ax est un tableau np.array
 
 ```python
 fig, ax = plt.subplots(2,1, sharex=True)
 
+# ax est un np.array 
 ax[0].plot(x, x**2)
 ax[1].plot(x, x**3)
 ```
@@ -83,30 +91,9 @@ ax[1].plot(x, x**3)
 import matplotlib.pyplot as plt
 ```
 
-### Fonction puissance plot
-
-```python
-x = np.linspace(0,2,10)
-# Vecteur de même dimension
-y = x**2 
-
-plt.plot(x, y)
-plt.show()
-``` 
-
-On peut apporter des styles à notre courbe
-
-- c couleur
-- lw épaisseur du trait
-- ls style du trait
-
-```python
-plt.plot(x, y, c='red', lw=1, ls'--');
-```
-
 ## 01 Exercice afficher plusieurs graphiques
 
-Soit le dataset suivant, affichez sur un même graphique avec la méthode fonctionnelle ou objet les différents graphiques.
+Soit le dataset suivant, affichez sur un même graphique avec la méthode fonctionnelle ou objet les 8 graphiques.
 
 ```python
 dataset = {f"tirage_{k}" : np.random.rand(100) for k in range(8) }
@@ -130,7 +117,7 @@ iris = load_iris()
 - Dimension du datasets iris 
 
 ```python
-# longueur, largeur des sépales et pétales
+# longueur, largeur des sépals et pétales
 x = iris.data 
 
 # classe 0 1 2 <=> d'iris
@@ -140,7 +127,7 @@ names = list(iris.target_names)
 
 ## 02 Exercice nuage de points
 
-1. Que représente le nuage de points suivants, complétez les légendes ci-dessous pour expliciter ce qu'elles représentent en fonction du datasets iris
+1. Que représente le nuage de points suivants, complétez les légendes ci-dessous pour expliciter ce qu'elles représentent en fonction du datasets iris ?
 
 ```python
 plt.scatter(x[:, 0], x[:,1], c=y)
@@ -148,10 +135,11 @@ plt.xlabel('')
 plt.ylabel('')
 ```
 
-2. Sachant que le paramètre **s** dans la fonction scatter représente la taille des points, modifiez le code ci-dessous pour que la taille des points soient fonction de la longueur des pétales
+2. Sachant que le paramètre **s** dans la fonction scatter représente la taille des points, modifiez le code ci-dessous pour que la taille des points soient fonction de la longueur des pétales.
 
 ```python
-plt.scatter(x[:, 0], x[:,1], c=y, alpha=.5, s = 100)
+x[:,2]
+plt.scatter(x[:, 0], x[:,1], c=y, alpha=.5, s = 2)
 ```
 
 ## Histogramme 1d
