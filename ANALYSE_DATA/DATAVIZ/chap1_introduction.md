@@ -160,11 +160,40 @@ plt.hist(x[:,0], bins = 30)
 
 Soit un lancer de 3 pièces de 1 euro, nous allons estimner la probabilité d'obtenir lors de ce lancer 2 piles exactement.
 
-1. Créez une fonction qui simule le lancer de 3 pièces
+1. Créez une fonction qui simule le lancer de 3 pièces.
+
+```python
+# Fonction lancer de pièce(s)
+def lancer(n = 3):
+    return [ np.random.randint(0,2) for _ in range(n) ]
+```
 
 2. Calculez le nombre de fois que l'on obtient 2 piles exactement pour un lancer.
 
-3. Répétez cette expérience aléatoire indépendantes 1000 fois et créez un histogramme calculant le nombre de fois que l'on obtient un pile, deux piles et trois piles; faites un histogramme, pour représenter leurs fréquences d'apparition.
+```python
+sum( lancer() ) == 2
+```
+
+3. Répétez cette expérience aléatoire indépendante 1000 fois, et créez un histogramme calculant le nombre de fois que l'on obtient 0 pile, une fois pile, deux fois piles exactement et trois fois piles; faites un histogramme, pour représenter leurs fréquences d'apparition.
+
+```python
+exps = [ sum(lancer()) for _ in range(1_000) ]
+
+plt.hist(
+    exps, 
+    align='mid', 
+    edgecolor = 'black' 
+);
+```
+
+Vérifiez que la probabilité est proche de ce que l'on pourrait calculer théoriquement :
+
+```python
+# avec notre simulation
+exps.count(2)/1_000
+# Théoriquement
+(1/8)*3
+```
 
 ## Histogramme 2d
 
