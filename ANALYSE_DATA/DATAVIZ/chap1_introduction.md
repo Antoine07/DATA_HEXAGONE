@@ -62,7 +62,7 @@ plt.savefig('my_fig.png')
 On peut également créer une grille de figures, on peut le voir comme un seul et même cycle pour nos figures.
 
 ```python
-# row column
+# row column 2*1 = 2 graphiques et numéro de la figure 1 et 2 dans l'exemple ci-dessous
 plt.subplot(2, 1, 1)
 plt.plot(x, x**2, label="quadratique", c='red')
 
@@ -156,6 +156,16 @@ Il permet de voir comment son distribuer les variables.
 plt.hist(x[:,0], bins = 30)
 ```
 
+## 02 Exercice fréquence 
+
+Soit un lancer de 3 pièces de 1 euro, nous allons estimner la probabilité d'obtenir lors de ce lancer 2 piles exactement.
+
+1. Créez une fonction qui simule le lancer de 3 pièces
+
+2. Calculez le nombre de fois que l'on obtient 2 piles exactement pour un lancer.
+
+3. Répétez cette expérience aléatoire indépendantes 1000 fois et créez un histogramme calculant le nombre de fois que l'on obtient un pile, deux piles et trois piles. Faites un histogramme.
+
 ## Histogramme 2d
 
 Il permet de représenter une distribution de deux variables.
@@ -170,6 +180,39 @@ plt.colorbar()
 - La couleur jaune, ici, indique la fréquence d'apparition la plus élévée par exemple.
 
 ![hist2d](images/hist2d.png)
+
+## Pie chart
+
+Diagramme circulaire
+
+```python
+explode = [0.0, 0.08, 0.0, 0.0,0.0,0.0]
+colors = ['saddlebrown', 'wheat', 'crimson', 'lightgrey','lightblue','darkblue']
+
+plt.pie(data, 
+        explode=explode, 
+        labels=labels, 
+        colors=colors, 
+        shadow=True)
+
+plt.show()
+```
+
+Vous pouvez également créer plusieurs diagrammes circulaires dans la même figure :
+
+```python
+fig, axes = plt.subplots(1, 2, figsize=(10, 6))
+ax1, ax2 = axes
+
+colors = ['saddlebrown', 'wheat', 'crimson', 'lightgrey','lightblue','darkblue']
+labels = ['Python','C','C++','PHP','Java','Ruby']
+
+ax1.pie(data, labels=labels, colors=colors, startangle=90)
+ax2.pie(data, labels=labels, colors=colors, startangle=90, counterclock=False)
+ax1.set_title('Starting the plot at 90°')
+ax2.set_title('Plotting clockwise')
+plt.show()
+```
 
 ## Analyse d'image
 
