@@ -164,7 +164,7 @@ Soit un lancer de 3 pièces de 1 euro, nous allons estimner la probabilité d'ob
 
 2. Calculez le nombre de fois que l'on obtient 2 piles exactement pour un lancer.
 
-3. Répétez cette expérience aléatoire indépendantes 1000 fois et créez un histogramme calculant le nombre de fois que l'on obtient un pile, deux piles et trois piles. Faites un histogramme.
+3. Répétez cette expérience aléatoire indépendantes 1000 fois et créez un histogramme calculant le nombre de fois que l'on obtient un pile, deux piles et trois piles; faites un histogramme, pour représenter leurs fréquences d'apparition.
 
 ## Histogramme 2d
 
