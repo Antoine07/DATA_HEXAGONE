@@ -25,7 +25,7 @@ Plus précisément une variable qualitative est dite **ordinale**, lorsque ses m
 
 Une variable qualitative est dite **nominale**, lorsque ses modalités ne peuvent être classées de façon naturelle (c'est par exemple le cas d'une variable comme Couleur des Yeux ou encore de la variable Sexe).
 
-## Exercice fréquence
+## 01 Exercice fréquence
 
 Récupérez le dataset dans student.csv, dans le dossier data et étudiez le critère couleur des yeux.
 
@@ -35,7 +35,7 @@ Récupérez le dataset dans student.csv, dans le dossier data et étudiez le cri
 
 3. Créez à partir du tableau précédent un diagramme en secteur pour visualiser la répartition de la couleur des yeux.
 
-## Exercice notes en statistique
+## 02 Exercice notes en statistique
 
 Récupérez le dataset **note_statistiques.csv** et faite un diagramme en baton des notes en statistiques.
 
@@ -77,20 +77,6 @@ Ici c'et la valeur 1.
 
 Certaines variables peuvent présenter plusieurs modes.
 
-### Exercice variable continue
-
-| Prix             |     Effectifs            |
-| -------------    |  ----------------------: |
-| [210, 230]       |        30                |
-| [210, 230]       |        60                |
-| [210, 230]       |        100               |
-| [210, 230]       |        20                |
-|                  |        total = 210       |
-
-Créez un histogramme à partir des données suivantes. Pensez à créer un DataFrame et définisser des classes à l'aide de la méthode cut de Pandas, par exemple. Et déterminez enfin le mode de la série statistique.
-
-Quel est le type de la variable Prix ?
-
 ## Médiane et Quantile
 
 Ces objets sont des **indicateurs de position** en statistiques. Au même titre que la moyenne.
@@ -99,7 +85,7 @@ La médiane (notée Me ) d'une variable quantitative est la valeur de cette vari
 
 La notion de quantile d'ordre $\alpha$ ($0 \leq \alpha \leq 1$), encore appelée fractile d'ordre $\alpha$, généralise la notion de médiane. Le quantile d'ordre $\alpha$ d'une variable quantitative X, est la valeur $X_{\alpha}$ de cette variable qui permet de scinder la population étudiée en deux sous-populations dont les effectifs respectifs sont égaux à $\alpha$ et 1 − $\alpha$ de l'effectif de la population initiale.
 
-## Exercice Quartile Définition
+## Application Quartile Définition
 
 En reprenant la définition d'un quantile ci-dessus essayez de décrire ce qu'est un quartile.
 
@@ -131,7 +117,7 @@ df.notes.quantile([0.25,0.5,0.75])
 
 ```
 
-## Exercice Quartile notes
+## 04 Exercice Quartile notes
 
  Soit la série suivantes : 10; 25; 30; 40; 41; 42; 50; 55; 70; 101; 110; 111
 
